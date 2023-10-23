@@ -173,6 +173,7 @@ class Handle_error_loop:
             elif type == 'l':
                 check_login = execute.login()
                 if check_login == 1:
+                    logfunc.login_log(username) #Store the login log in the file
                     break
                 elif check_login == 0:
                     pass
