@@ -8,6 +8,10 @@ import bcrypt
 
 
 class Main_Func:
+    """
+    In this class include every important function which make the register and login secure
+    Like encryption, decryption, hashing password and matching the hashed password
+    """
     def __init__(self):
         pass
     def encryption(self, username, password, name):  #This used to encrypt the hashed password
@@ -47,11 +51,10 @@ class Main_Func:
         else:
             return 0
 
-
-
-
-
 class Save_In_Database:
+    """
+    This class is used to make the proper saving user data in the database
+    """
     def register_data(self,username, name, password, status, dob):
         try:
             hashed_passw, salt = mainfunc.hashing_pass(password)
@@ -69,11 +72,10 @@ class Save_In_Database:
             print("The Username is already exists!")
             return 0
 
-
-
-
-
 class Display:
+    """
+    This class print the data given by the user for the confirmation for the registration and etc
+    """
     def confirm_registration(self, username, password, name, status, dob): #This function is used to see the user data they entered in
         len_pass = len(password)
         star_sign = len_pass * "*"
@@ -87,6 +89,9 @@ class Display:
         print('\n')
 
 class User_Input:
+    """
+    This class handle the all user inputs in the registration and login process
+    """
     def register_input(self): #Collecting the details for registering new user in the database
         username = input("Enter Your Username: ")
         password = input("Enter Your Password: ")
@@ -101,7 +106,9 @@ class User_Input:
         return username, password
 
 class Log_Func:
-    """This class contain the function that save the log files"""
+    """
+    This class contain the function that are capable for the saving both registration and login log in files
+    """
     def __init__(self):
         now = datetime.datetime.now()
         self.exact_time = now.strftime("%Y-%m-%d %H:%M:%S") #This value of the var is the year-month-day hour:minute:second
@@ -117,6 +124,9 @@ class Log_Func:
             loged_log.write(log_entry)
 
 class Execute:
+    """
+    This class collect all the info from other class and combine to work proper registration and login process
+    """
     def register(self):
         while True:
             username, password, name, status, dob = userinput.register_input()
@@ -132,9 +142,6 @@ class Execute:
                     break
                 elif checkerror == 0:
                     print("Restarting from the begining")
-
-
-
             elif confirm == 'no':
                 print("It's time to say Good Byes.....")
                 sleep(3)
@@ -143,23 +150,23 @@ class Execute:
     def login(self):
         username, password = userinput.login_input()
         decrypted_password = mainfunc.decryption(username)
-        try:
-            passw_check = mainfunc.matching_hash(password, decrypted_password)
-            if passw_check == 1:
-                print("It worked")
-                return 1
-            elif passw_check == 0:
-                print("The Password is wrong.....")
-                return 0
+        passw_check = mainfunc.matching_hash(password, decrypted_password)
+        if passw_check == 1:
+            print("It worked")
+            return 1
+        elif passw_check == 0:
+            print("The Password is wrong.....")
+            return 0
 
-        except:
-            print("It sucks")
 
 
 
 
 
 class Handle_error_loop:
+    """
+    This class contain function that make sure registration and login are in a loop to prevent the termination of the code
+    """
     def main_loop(self):
         while True:
             type = input("Do you want register or login (r/l): ")
