@@ -6,6 +6,7 @@ import sys
 import os
 import bcrypt
 
+author = "Gokul B"
 
 class Main_Func:
     """
