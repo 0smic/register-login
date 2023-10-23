@@ -158,11 +158,6 @@ class Execute:
             print("The Password is wrong.....")
             return 0
 
-
-
-
-
-
 class Handle_error_loop:
     """
     This class contain function that make sure registration and login are in a loop to prevent the termination of the code
