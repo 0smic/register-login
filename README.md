@@ -24,11 +24,14 @@ This is a simple Python application that demonstrates user registration and logi
 
 - Python 3.x
 - Required Python packages are listed in `requirements.txt`.
+- use this command to download the requirement.
+- ```bash
+  pip freeze > requirement.txt
 
 ## Getting Started
 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/user-registration-login.git
-   cd user-registration-login
+   git clone https://github.com/huho-0/register-login/
+   cd cd register-login
