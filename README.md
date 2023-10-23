@@ -1,4 +1,3 @@
-# register-login
 # User Registration and Login System
 
 This is a simple Python application that demonstrates user registration and login functionality with password encryption, hashing, and user data storage in an H5 file.
