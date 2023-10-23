@@ -179,7 +179,7 @@ class Handle_error_loop:
                     pass
 
             else:
-                print("Wrong input! Restart the application")
+                print("Wrong input! Restarting the application")
                 print('\n')
 
 
