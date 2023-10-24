@@ -23,7 +23,6 @@ class ListPeople:
                         print(key)
             list_group(file1)
 
-listpeople = ListPeople()
 
 class User_Command_Line:
 
@@ -54,5 +53,5 @@ def main(username):
             usercommandline.display_command()
 
 
-usercommandline = User_Command_Line
-listpeople = ListPeople
+usercommandline = User_Command_Line()
+listpeople = ListPeople()
