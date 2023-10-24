@@ -31,3 +31,4 @@ This is a simple Python application that demonstrates user registration and logi
    ```bash
    git clone https://github.com/huho-0/register-login/
    cd register-login
+   python main.py
