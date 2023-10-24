@@ -36,9 +36,10 @@ class User_Command_Line:
         print("dm           :   Message to a user")
         print("profile      :   Details about your account")
         print('save_note    :   Save your personal note as a file')
+        print("history      :   Your previous commands")
         print('help         :   Display this message')
     def commands():
-        commands = ['list', 'details', 'connect', 'dm', 'profile', 'save_note', 'help']
+        commands = ['list', 'details', 'connect', 'dm', 'profile', 'save_note', 'help', 'history']
         return commands
     def execute_command(self):
 
