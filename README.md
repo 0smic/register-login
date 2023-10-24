@@ -23,6 +23,10 @@ This is a simple Python application that demonstrates user registration and logi
 
 - Python 3.x
 - Required Python packages are listed in `requirements.txt`.
+- Download all the requirement using this command
+- ```bash
+  pip install -r requirements.txt
+  
 
 ## Getting Started
 
