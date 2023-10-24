@@ -94,6 +94,9 @@ class User_Input:
     This class handle the all user inputs in the registration and login process
     """
     def register_input(self): #Collecting the details for registering new user in the database
+        print('\n')
+        print('Remember We hash your password and encrypt it before storing in database. \n')
+        print('The more complex you make the password the more secure you become from dictionary attack. \n')
         username = input("Enter Your Username: ")
         password = input("Enter Your Password: ")
         name = input("Enter Your Name: ")
