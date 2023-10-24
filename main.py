@@ -5,6 +5,9 @@ import h5py
 import sys
 import os
 import bcrypt
+import subprocess
+from after_login import *
+#from after_login import listpeople
 
 author = "Gokul B"
 
@@ -139,6 +142,7 @@ class Execute:
             if confirm == 'yes': #This is were register function are executed
                 checkerror = saveindatabase.register_data(username, name, password, status, dob)
                 if checkerror == 1:
+                    listpeople.all_users_gen(username, name, status, dob)
                     sleep(3)
                     print('\n')
                     print('You are successfully Registred in ......./')
@@ -156,10 +160,11 @@ class Execute:
         decrypted_password = mainfunc.decryption(username)
         passw_check = mainfunc.matching_hash(password, decrypted_password)
         if passw_check == 1:
-            print("You are successfully loged in ")
-            return 1
+            print("You are successfully Loged  in")
+            return username, 1
         elif passw_check == 0:
             print("The Password is wrong.....")
+            logfunc.login_log(username)
             return 0
 
 class Handle_error_loop:
@@ -175,15 +180,19 @@ class Handle_error_loop:
                     pass
             elif type == 'l':
                 check_login = execute.login()
-                if check_login == 1:
-                    logfunc.login_log(username) #Store the login log in the file
+                if 1 in check_login:
+                    username = check_login[0]
+                    main(username)
+
+                    ### The function of the after login
                     break
-                elif check_login == 0:
+                elif 0 in check_login:
                     pass
 
             else:
                 print("Wrong input! Restarting the application")
                 print('\n')
+
 
 
 if __name__ == '__main__':
