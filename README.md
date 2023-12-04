@@ -33,6 +33,6 @@ This is a simple Python application that demonstrates user registration and logi
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/huho-0/register-login/
+   git clone https://github.com/0smic/register-login/
    cd register-login
    python main.py
