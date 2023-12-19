@@ -104,7 +104,7 @@ class User_Input:
         password = input("Enter Your Password: ")
         name = input("Enter Your Name: ")
         status = input("Enter Your Status: ")
-        dob = int(input("Enter Your DOB: "))
+        dob = int(input("Enter the year of birth: "))
         return username, password, name, status, dob
 
     def login_input(self): #Collecting the details for login
