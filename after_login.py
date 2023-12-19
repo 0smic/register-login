@@ -3,6 +3,7 @@ import h5py
 class ListPeople:
     def __init__(self):
         pass
+    @staticmethod
     def all_users_gen(username, name, status, dob):
         """
         This is function store all the basic details without the password, key, salt of user in a database.
@@ -25,10 +26,12 @@ class ListPeople:
 
 
 class User_Command_Line:
+    def __init__(self) -> None:
+        pass
 
     def create_comlin():
         pass
-
+    @staticmethod
     def display_command():
         print("list:        :   list Users in Down Stream")
         print("details      :   Details of the specific user")
@@ -38,13 +41,13 @@ class User_Command_Line:
         print('save_note    :   Save your personal note as a file')
         print("history      :   Your previous commands")
         print('help         :   Display this message')
+    @staticmethod
     def commands():
         commands = ['list', 'details', 'connect', 'dm', 'profile', 'save_note', 'help', 'history']
         return commands
+    
     def execute_command(self):
-
         pass
-
 
 def main(username):
     while True:
@@ -52,6 +55,8 @@ def main(username):
         commands = usercommandline.commands()
         if user_session == commands[6]:
             usercommandline.display_command()
+        if user_session == commands[0]:
+            listpeople.listout_user()
 
 
 usercommandline = User_Command_Line()
