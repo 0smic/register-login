@@ -34,7 +34,7 @@ class User_Command_Line:
     @staticmethod
     def display_command():
         print("list:        :   list Users in Down Stream")
-        print("details      :   Details of the specific user")
+        print("details      :   Details of the specific user. Type \"details username\"")
         print("connect      :   Connect to the users")
         print("dm           :   Message to a user")
         print("profile      :   Details about your account")
@@ -53,11 +53,28 @@ def main(username):
     while True:
         user_session = input(f"DownStream@{username}: ")
         commands = usercommandline.commands()
+        command_striped = user_session.split(" ")
+        if command_striped[0] == "details":
+            details(command_striped[1])
         if user_session == commands[6]:
             usercommandline.display_command()
         if user_session == commands[0]:
             listpeople.listout_user()
 
+def details(details_username):
+    with h5py.File("user_basic.h5", "r") as file:
+        if details_username in file:
+            group = file[details_username]
+            name = group.attrs["name"]
+            status = group.attrs['status'] 
+            dob = group.attrs['dob']
+            details_display(details_username,name,status,dob)
 
+
+def details_display(username, name, status, dob):
+    print(f"This are the details of the user {username}")
+    print(f"Name   = {name}")
+    print(f"Status = {status}")
+    print(f"DOB   = {dob}\n")
 usercommandline = User_Command_Line()
 listpeople = ListPeople()
